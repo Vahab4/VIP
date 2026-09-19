@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vahab Asadizadeh | Multilingual Health Specialist & Medical Scholar</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0d;
+      --bg-secondary: #121217;
+      --bg-card: rgba(22, 22, 29, 0.7);
+      --border-gold: rgba(212, 175, 55, 0.2);
+      --border-gold-hover: rgba(212, 175, 55, 0.5);
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+      --text-main: #f4f4f7;
+      --text-muted: #9e9ea8;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Background Ambient Glows */
+    .ambient-glow-1 {
+      position: fixed;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: -150px;
+      left: -150px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(170, 124, 17, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 24px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 13, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-logo span {
+      background: var(--accent-gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn-gold {
+      background: var(--accent-gold-gradient);
+      color: #0a0a0d;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      background: var(--accent-gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-gold);
+      color: var(--text-main);
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--accent-gold);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-tag {
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Achievements Grid */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .achievement-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 36px 28px;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .achievement-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .achievement-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--accent-gold-light);
+    }
+
+    .achievement-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Story / Origin Section */
+    .story-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-content p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .story-highlight {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 24px;
+      margin: 32px 0;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    /* Skill Tags */
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 40px 32px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .service-number {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .service-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .service-link {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 60px 40px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-box h3 {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+
+    .contact-email {
+      font-size: 1.2rem;
+      color: var(--accent-gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-gold);
+      padding-bottom: 4px;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    .contact-email:hover {
+      opacity: 0.8;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .story-wrapper { grid-template-columns: 1fr; gap: 30px; }
+      .hero { padding-top: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Header Navigation -->
+  <nav>
+    <a href="#" class="brand-logo">Vahab <span>Asadizadeh</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:asadizadehv@gmail.com" class="btn-gold">Initiate Contact</a>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">🩺 5th-Year Medical Scholar & Multilingual Consultant</div>
+        <h1 class="hero-title">
+          Bridging <span>Medical Science</span>, Advanced Programming & Holistic Wellness.
+        </h1>
+        <p class="hero-subtitle">
+          I leverage clinical training, cross-cultural fluency, and technological literacy to deliver high-precision medical content, language mastery programs, and strategic academic advisement globally.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-gold">Explore Capabilities</a>
+          <a href="#about" class="btn-outline">Read My Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Milestones & Honors</span>
+          <h2 class="section-title">Disciplined Excellence Across Domains</h2>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <span class="achievement-icon">🩺</span>
+            <h3 class="achievement-title">5th-Year Clinical Scholar</h3>
+            <p class="achievement-desc">Advanced clinical education focused on human vitality, preventative health, and holistic patient communication.</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-icon">🥉</span>
+            <h3 class="achievement-title">National Wushu Bronze Medalist</h3>
+            <p class="achievement-desc">Rigorous martial arts competition cultivating peak physical mastery, endurance, and mental focus.</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-icon">🪘</span>
+            <h3 class="achievement-title">Provincial Daf Musical Champion</h3>
+            <p class="achievement-desc">Award-winning mastery of traditional rhythm and acoustic performance art.</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-icon">🐍</span>
+            <h3 class="achievement-title">Python Programmer</h3>
+            <p class="achievement-desc">Designing computational tools and scripts to analyze health data and automate complex workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Story Section -->
+    <section id="about" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="story-wrapper">
+          <div>
+            <div class="section-header" style="margin-bottom: 24px;">
+              <span class="section-tag">Biography</span>
+              <h2 class="section-title">An Insatiable Curiosity for Human Potential</h2>
+            </div>
+            <div class="story-content">
+              <p>Since childhood, I have been driven by an endless passion for learning and scientific discovery. My journey began with traditional arts, martial arts, and painting—disciplines that taught me precision, balance, and patience.</p>
+              
+              <div class="story-highlight">
+                "True wellness unites physical discipline, intellectual clarity, and cross-cultural understanding."
+              </div>
+
+              <p>Today, as a fifth-year medical student, I synthesize my clinical foundation with modern technical literacy in Python and multilingual fluency to empower individuals, students, and organizations worldwide.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-header" style="margin-bottom: 24px;">
+              <span class="section-tag">Core Competencies</span>
+              <h2 class="section-title">Capabilities & Skills</h2>
+            </div>
+            <div class="skills-flex">
+              <span class="skill-pill">Clinical Medical Foundations</span>
+              <span class="skill-pill">Medical Writing & Editing</span>
+              <span class="skill-pill">English Pedagogy & Fluency</span>
+              <span class="skill-pill">Medical & Technical Translation</span>
+              <span class="skill-pill">Python Programming</span>
+              <span class="skill-pill">University Application Mentorship</span>
+              <span class="skill-pill">Holistic Health Education</span>
+              <span class="skill-pill">Cross-Cultural Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section (Professionally Formatted) -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Consulting & Advisory</span>
+          <h2 class="section-title">Tailored Professional Services</h2>
+        </div>
+        <div class="services-grid">
+          
+          <div class="service-card">
+            <div>
+              <div class="service-number">01</div>
+              <h3 class="service-title">English Language Mastery & Instruction</h3>
+              <p class="service-desc">Personalized, high-level English language coaching specializing in medical terminology, academic writing, and conversational fluency for global professionals and students.</p>
+            </div>
+            <a href="mailto:asadizadehv@gmail.com?subject=Inquiry:%20Language%20Coaching" class="service-link">Inquire Service &rarr;</a>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-number">02</div>
+              <h3 class="service-title">Medical Content & Technical Translation</h3>
+              <p class="service-desc">Precision content creation and bilingual translation for medical articles, health publications, and educational synthesis bridging complex scientific research with accessible prose.</p>
+            </div>
+            <a href="mailto:asadizadehv@gmail.com?subject=Inquiry:%20Medical%20Writing" class="service-link">Inquire Service &rarr;</a>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-number">03</div>
+              <h3 class="service-title">Academic & University Admissions Advising</h3>
+              <p class="service-desc">Strategic guidance for prospective students navigating future university selection, medical curriculum preparation, and international study application strategies.</p>
+            </div>
+            <a href="mailto:asadizadehv@gmail.com?subject=Inquiry:%20Academic%20Advising" class="service-link">Inquire Service &rarr;</a>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-number">04</div>
+              <h3 class="service-title">Holistic Health & Wellness Educational Guidance</h3>
+              <p class="service-desc">Evidence-aligned lifestyle, stress management, and preventative health educational consulting within the appropriate clinical scope of a senior 5th-year medical scholar.</p>
+            </div>
+            <a href="mailto:asadizadehv@gmail.com?subject=Inquiry:%20Health%20Consultation" class="service-link">Inquire Service &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-tag">Get In Touch</span>
+          <h3>Let's Discuss Your Goals</h3>
+          <p>Whether you require language instruction, medical content, or academic consulting, feel free to send a direct message.</p>
+          <a href="mailto:asadizadehv@gmail.com" class="contact-email">asadizadehv@gmail.com</a>
+          <div style="margin-top: 32px;">
+            <a href="mailto:asadizadehv@gmail.com" class="btn-gold">Send an Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Vahab Asadizadeh. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
