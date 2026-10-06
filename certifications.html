@@ -52,8 +52,6 @@
 
         .search-filter-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
@@ -77,7 +75,7 @@
 
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
@@ -99,9 +97,9 @@
 
         .cert-header {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .cert-icon {
@@ -118,41 +116,15 @@
         }
 
         .cert-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-main);
-            line-height: 1.3;
+            word-break: break-word;
         }
 
-        .cert-issuer {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-top: 0.25rem;
-        }
-
-        .cert-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .cert-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .btn-verify {
-            display: inline-block;
+        .btn-open {
+            display: block;
+            width: 100%;
             text-align: center;
             background-color: transparent;
             color: var(--text-main);
@@ -162,13 +134,22 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
-        .btn-verify:hover {
+        .btn-open:hover {
             background-color: var(--accent-color);
             color: #0f172a;
             border-color: var(--accent-color);
+        }
+
+        .status-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            padding: 2rem;
         }
 
         footer {
@@ -184,75 +165,15 @@
     <div class="container">
         <header>
             <h1>Certifications & Credentials</h1>
-            <p>Verified professional qualifications and technical achievements</p>
+            <p>Verified qualifications and documents</p>
         </header>
 
         <div class="search-filter-container">
-            <input type="text" id="searchInput" class="search-box" placeholder="Search certifications or skills..." onkeyup="filterCerts()">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search certifications..." onkeyup="filterCerts()">
         </div>
 
         <main class="cert-grid" id="certGrid">
-
-            <!-- Certificate 1 -->
-            <article class="cert-card">
-                <div>
-                    <div class="cert-header">
-                        <div class="cert-icon">AWS</div>
-                        <div>
-                            <h2 class="cert-title">Solutions Architect Associate</h2>
-                            <div class="cert-issuer">Amazon Web Services</div>
-                        </div>
-                    </div>
-                    <div class="cert-date">Issued: Jan 2024 • Expires: Jan 2027</div>
-                    <div class="cert-tags">
-                        <span class="tag">Cloud Architecture</span>
-                        <span class="tag">AWS</span>
-                        <span class="tag">Infrastructure</span>
-                    </div>
-                </div>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
-            </article>
-
-            <!-- Certificate 2 -->
-            <article class="cert-card">
-                <div>
-                    <div class="cert-header">
-                        <div class="cert-icon">DEV</div>
-                        <div>
-                            <h2 class="cert-title">Full Stack Web Development</h2>
-                            <div class="cert-issuer">Professional Certificate</div>
-                        </div>
-                    </div>
-                    <div class="cert-date">Issued: Nov 2023</div>
-                    <div class="cert-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Node.js</span>
-                    </div>
-                </div>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
-            </article>
-
-            <!-- Certificate 3 -->
-            <article class="cert-card">
-                <div>
-                    <div class="cert-header">
-                        <div class="cert-icon">SEC</div>
-                        <div>
-                            <h2 class="cert-title">Cybersecurity Essentials</h2>
-                            <div class="cert-issuer">Cisco Academy</div>
-                        </div>
-                    </div>
-                    <div class="cert-date">Issued: Aug 2023</div>
-                    <div class="cert-tags">
-                        <span class="tag">Networking</span>
-                        <span class="tag">Security</span>
-                        <span class="tag">Compliance</span>
-                    </div>
-                </div>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
-            </article>
-
+            <div class="status-message">Loading certifications...</div>
         </main>
 
         <footer>
@@ -261,19 +182,68 @@
     </div>
 
     <script>
+        const pdfFolder = "Certifications";
+
+        async function loadCertifications() {
+            const grid = document.getElementById('certGrid');
+            
+            try {
+                const response = await fetch('./certifications.json');
+                if (!response.ok) throw new Error('Could not find certifications.json');
+                
+                const pdfFiles = await response.json();
+
+                if (!pdfFiles || pdfFiles.length === 0) {
+                    grid.innerHTML = '<div class="status-message">No certificates found.</div>';
+                    return;
+                }
+
+                grid.innerHTML = '';
+
+                pdfFiles.forEach(fileName => {
+                    // Extract clean title from filename (e.g. "aws_certificate.pdf" -> "Aws Certificate")
+                    const cleanTitle = fileName
+                        .replace(/\.pdf$/i, '')
+                        .replace(/[-_]/g, ' ')
+                        .toUpperCase();
+
+                    const pdfPath = `${pdfFolder}/${fileName}`;
+
+                    const card = document.createElement('article');
+                    card.className = 'cert-card';
+                    card.innerHTML = `
+                        <div>
+                            <div class="cert-header">
+                                <div class="cert-icon">PDF</div>
+                                <h2 class="cert-title">${cleanTitle}</h2>
+                            </div>
+                        </div>
+                        <a href="${pdfPath}" target="_blank" rel="noopener noreferrer" class="btn-open">
+                            View Certificate PDF
+                        </a>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<div class="status-message">Error loading certifications. Make sure certifications.json exists.</div>`;
+            }
+        }
+
         function filterCerts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('.cert-card');
 
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = text.includes(query) ? "flex" : "none";
             });
         }
+
+        // Initialize on page load
+        loadCertifications();
     </script>
 </body>
 </html>
