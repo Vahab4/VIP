@@ -201,7 +201,6 @@
                 grid.innerHTML = '';
 
                 pdfFiles.forEach(fileName => {
-                    // Extract clean title from filename (e.g. "aws_certificate.pdf" -> "Aws Certificate")
                     const cleanTitle = fileName
                         .replace(/\.pdf$/i, '')
                         .replace(/[-_]/g, ' ')
@@ -242,7 +241,6 @@
             });
         }
 
-        // Initialize on page load
         loadCertifications();
     </script>
 </body>
