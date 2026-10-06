@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications & Credentials | Vahab Asadizadeh</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0d;
+      --bg-secondary: #121217;
+      --bg-card: rgba(22, 22, 29, 0.7);
+      --border-gold: rgba(212, 175, 55, 0.2);
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+      --text-main: #f4f4f7;
+      --text-muted: #9e9ea8;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-primary); color: var(--text-main); font-family: var(--font-body); line-height: 1.7; }
+    
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 24px 6%; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(10, 10, 13, 0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+    .brand-logo { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--text-main); text-decoration: none; text-transform: uppercase; }
+    .brand-logo span { background: var(--accent-gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-gold {
+      background: var(--accent-gold-gradient); color: #0a0a0d; font-weight: 700; padding: 12px 28px;
+      border-radius: 4px; text-decoration: none; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 140px 6% 80px; }
+    .page-title { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 12px; }
+    .page-title span { background: var(--accent-gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-subtitle { color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .cert-card {
+      background: var(--bg-card); border: 1px solid var(--border-gold); padding: 32px; border-radius: 8px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .cert-card:hover { transform: translateY(-4px); border-color: var(--accent-gold); }
+    .cert-issuer { color: var(--accent-gold); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+    .cert-name { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold-light); }
+    .cert-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .cert-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+    .cert-link { color: var(--accent-gold); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+
+    footer { padding: 40px 0; text-align: center; color: var(--text-muted); border-top: 1px solid rgba(212, 175, 55, 0.1); margin-top: 80px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="brand-logo">Vahab <span>Asadizadeh</span></a>
+    <a href="index.html" class="btn-gold">&larr; Back to Home</a>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Certifications & <span>Credentials</span></h1>
+    <p class="page-subtitle">A record of clinical qualifications, language accreditations, and technical achievements.</p>
+
+    <div class="cert-grid">
+      <!-- Certification Item 1 -->
+      <div class="cert-card">
+        <div class="cert-issuer">Medical & Clinical</div>
+        <h2 class="cert-name">5th-Year Clinical Scholar Credential</h2>
+        <div class="cert-date">Issued 2024</div>
+        <p class="cert-desc">Demonstrated proficiency across internal medicine, surgical rotations, and preventive clinical care.</p>
+        <a href="#" class="cert-link">View Certificate &rarr;</a>
+      </div>
+
+      <!-- Certification Item 2 -->
+      <div class="cert-card">
+        <div class="cert-issuer">Language & Instruction</div>
+        <h2 class="cert-name">Advanced English Pedagogy & Medical Terminology</h2>
+        <div class="cert-date">Issued 2023</div>
+        <p class="cert-desc">Certified in specialized language instruction for medical professionals and academic communication.</p>
+        <a href="#" class="cert-link">View Certificate &rarr;</a>
+      </div>
+
+      <!-- Certification Item 3 -->
+      <div class="cert-card">
+        <div class="cert-issuer">Programming & Data</div>
+        <h2 class="cert-name">Python for Health Analytics</h2>
+        <div class="cert-date">Issued 2023</div>
+        <p class="cert-desc">Proficiency in computational data processing, algorithmic health analysis, and workflow automation.</p>
+        <a href="#" class="cert-link">View Certificate &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Vahab Asadizadeh. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
