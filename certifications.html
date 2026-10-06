@@ -1,405 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certifications & Credentials | Vahab Asadizadeh</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Vahab4</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-  <style>
-    :root {
-      --bg-primary: #0a0a0d;
-      --bg-secondary: #121217;
-      --bg-card: rgba(22, 22, 29, 0.7);
-      --border-gold: rgba(212, 175, 55, 0.2);
-      --accent-gold: #d4af37;
-      --accent-gold-light: #f3e5ab;
-      --accent-gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
-      --text-main: #f4f4f7;
-      --text-muted: #9e9ea8;
-      --font-heading: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
 
-    body { 
-      background-color: var(--bg-primary); 
-      color: var(--text-main); 
-      font-family: var(--font-body); 
-      line-height: 1.7; 
-    }
-    
-    /* Navigation Bar */
-    nav {
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      z-index: 1000;
-      padding: 24px 6%; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-      background: rgba(10, 10, 13, 0.85); 
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-    .brand-logo { 
-      font-family: var(--font-heading); 
-      font-size: 1.6rem; 
-      font-weight: 700; 
-      color: var(--text-main); 
-      text-decoration: none; 
-      text-transform: uppercase; 
-    }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-    .brand-logo span { 
-      background: var(--accent-gold-gradient); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-    }
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
 
-    .btn-gold {
-      background: var(--accent-gold-gradient); 
-      color: #0a0a0d; 
-      font-weight: 700; 
-      padding: 12px 28px;
-      border-radius: 4px; 
-      text-decoration: none; 
-      font-size: 0.85rem; 
-      letter-spacing: 1.5px; 
-      text-transform: uppercase;
-      transition: opacity 0.3s ease;
-    }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
 
-    .btn-gold:hover {
-      opacity: 0.9;
-    }
+        .search-filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
 
-    /* Page Layout */
-    .container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 140px 6% 80px; 
-    }
+        .search-box {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            font-size: 1rem;
+            width: 100%;
+            max-width: 350px;
+            outline: none;
+        }
 
-    .page-title { 
-      font-family: var(--font-heading); 
-      font-size: 3rem; 
-      margin-bottom: 12px; 
-    }
+        .search-box:focus {
+            border-color: var(--accent-color);
+        }
 
-    .page-title span { 
-      background: var(--accent-gold-gradient); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-    }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
 
-    .page-subtitle { 
-      color: var(--text-muted); 
-      margin-bottom: 40px; 
-      font-size: 1.1rem; 
-    }
+        .cert-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
 
-    /* Certification Grid & Cards */
-    .cert-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-      gap: 24px; 
-    }
+        .cert-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
 
-    .cert-card {
-      background: var(--bg-card); 
-      border: 1px solid var(--border-gold); 
-      padding: 32px; 
-      border-radius: 8px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
+        .cert-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
 
-    .cert-card:hover { 
-      transform: translateY(-4px); 
-      border-color: var(--accent-gold); 
-    }
+        .cert-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
 
-    .cert-issuer { 
-      color: var(--accent-gold); 
-      font-size: 0.85rem; 
-      letter-spacing: 1px; 
-      text-transform: uppercase; 
-      font-weight: 600; 
-      margin-bottom: 8px; 
-    }
+        .cert-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
 
-    .cert-name { 
-      font-family: var(--font-heading); 
-      font-size: 1.5rem; 
-      margin-bottom: 12px; 
-      color: var(--accent-gold-light); 
-    }
+        .cert-issuer {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-top: 0.25rem;
+        }
 
-    .cert-date { 
-      color: var(--text-muted); 
-      font-size: 0.85rem; 
-      margin-bottom: 16px; 
-    }
+        .cert-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
 
-    .cert-desc { 
-      color: var(--text-muted); 
-      font-size: 0.95rem; 
-      margin-bottom: 24px; 
-      flex-grow: 1;
-    }
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .cert-link { 
-      color: var(--accent-gold); 
-      text-decoration: none; 
-      font-size: 0.85rem; 
-      font-weight: 600; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      display: inline-block;
-      transition: color 0.2s ease;
-    }
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
 
-    .cert-link:hover {
-      color: var(--accent-gold-light);
-    }
+        .btn-verify {
+            display: inline-block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
 
-    /* Footer */
-    footer { 
-      padding: 40px 0; 
-      text-align: center; 
-      color: var(--text-muted); 
-      border-top: 1px solid rgba(212, 175, 55, 0.1); 
-      margin-top: 80px; 
-    }
+        .btn-verify:hover {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            border-color: var(--accent-color);
+        }
 
-    /* Modal Overlay Backdrop */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 10, 13, 0.85);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      z-index: 2000;
-      padding: 20px;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Modal Content Box */
-    .modal-container {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-gold);
-      border-radius: 12px;
-      width: 100%;
-      max-width: 960px;
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      overflow: hidden;
-      transform: scale(0.95);
-      transition: transform 0.3s ease;
-    }
-
-    .modal-overlay.active .modal-container {
-      transform: scale(1);
-    }
-
-    /* Modal Header */
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-      background: rgba(18, 18, 23, 0.95);
-    }
-
-    .modal-title {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      color: var(--accent-gold-light);
-      margin: 0;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 2rem;
-      cursor: pointer;
-      line-height: 1;
-      transition: color 0.2s;
-    }
-
-    .modal-close:hover {
-      color: var(--accent-gold);
-    }
-
-    /* Modal Viewer Body */
-    .modal-body {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-
-    .modal-body iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header Navigation -->
-  <nav>
-    <a href="index.html" class="brand-logo">Vahab <span>Asadizadeh</span></a>
-    <a href="index.html" class="btn-gold">&larr; Back to Home</a>
-  </nav>
+    <div class="container">
+        <header>
+            <h1>Certifications & Credentials</h1>
+            <p>Verified professional qualifications and technical achievements</p>
+        </header>
 
-  <!-- Main Content Container -->
-  <main class="container">
-    <h1 class="page-title">Certifications & <span>Credentials</span></h1>
-    <p class="page-subtitle">A record of clinical qualifications, language accreditations, and technical achievements.</p>
+        <div class="search-filter-container">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search certifications or skills..." onkeyup="filterCerts()">
+        </div>
 
-    <div class="cert-grid">
-      
-      <!-- Certification Card 1 -->
-      <div class="cert-card">
-        <div class="cert-issuer">Medical & Clinical</div>
-        <h2 class="cert-name">5th-Year Clinical Scholar Credential</h2>
-        <div class="cert-date">Issued 2024</div>
-        <p class="cert-desc">Demonstrated proficiency across internal medicine, surgical rotations, and preventive clinical care.</p>
-        <a href="#" 
-           class="cert-link view-cert-btn" 
-           data-src="assets/certificates/clinical-scholar.pdf" 
-           data-title="5th-Year Clinical Scholar Credential">View Certificate &rarr;</a>
-      </div>
+        <main class="cert-grid" id="certGrid">
 
-      <!-- Certification Card 2 -->
-      <div class="cert-card">
-        <div class="cert-issuer">Language & Instruction</div>
-        <h2 class="cert-name">Advanced English Pedagogy & Medical Terminology</h2>
-        <div class="cert-date">Issued 2023</div>
-        <p class="cert-desc">Certified in specialized language instruction for medical professionals and academic communication.</p>
-        <a href="#" 
-           class="cert-link view-cert-btn" 
-           data-src="assets/certificates/english-pedagogy.pdf" 
-           data-title="Advanced English Pedagogy Certificate">View Certificate &rarr;</a>
-      </div>
+            <!-- Certificate 1 -->
+            <article class="cert-card">
+                <div>
+                    <div class="cert-header">
+                        <div class="cert-icon">AWS</div>
+                        <div>
+                            <h2 class="cert-title">Solutions Architect Associate</h2>
+                            <div class="cert-issuer">Amazon Web Services</div>
+                        </div>
+                    </div>
+                    <div class="cert-date">Issued: Jan 2024 • Expires: Jan 2027</div>
+                    <div class="cert-tags">
+                        <span class="tag">Cloud Architecture</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                </div>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
+            </article>
 
-      <!-- Certification Card 3 -->
-      <div class="cert-card">
-        <div class="cert-issuer">Programming & Data</div>
-        <h2 class="cert-name">Python for Health Analytics</h2>
-        <div class="cert-date">Issued 2023</div>
-        <p class="cert-desc">Proficiency in computational data processing, algorithmic health analysis, and workflow automation.</p>
-        <a href="#" 
-           class="cert-link view-cert-btn" 
-           data-src="assets/certificates/python-analytics.pdf" 
-           data-title="Python for Health Analytics Certificate">View Certificate &rarr;</a>
-      </div>
+            <!-- Certificate 2 -->
+            <article class="cert-card">
+                <div>
+                    <div class="cert-header">
+                        <div class="cert-icon">DEV</div>
+                        <div>
+                            <h2 class="cert-title">Full Stack Web Development</h2>
+                            <div class="cert-issuer">Professional Certificate</div>
+                        </div>
+                    </div>
+                    <div class="cert-date">Issued: Nov 2023</div>
+                    <div class="cert-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
+            </article>
 
+            <!-- Certificate 3 -->
+            <article class="cert-card">
+                <div>
+                    <div class="cert-header">
+                        <div class="cert-icon">SEC</div>
+                        <div>
+                            <h2 class="cert-title">Cybersecurity Essentials</h2>
+                            <div class="cert-issuer">Cisco Academy</div>
+                        </div>
+                    </div>
+                    <div class="cert-date">Issued: Aug 2023</div>
+                    <div class="cert-tags">
+                        <span class="tag">Networking</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-verify">Verify Credential</a>
+            </article>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Vahab4. Hosted on GitHub Pages.</p>
+        </footer>
     </div>
-  </main>
 
-  <!-- PDF Preview Modal -->
-  <div id="certModal" class="modal-overlay" aria-hidden="true">
-    <div class="modal-container">
-      <div class="modal-header">
-        <h3 id="modalTitle" class="modal-title">Certificate Preview</h3>
-        <button id="modalClose" class="modal-close" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalIframe" src="" title="Certificate Document Viewer"></iframe>
-      </div>
-    </div>
-  </div>
+    <script>
+        function filterCerts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.cert-card');
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Vahab Asadizadeh. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal Interactivity Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('certModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalIframe = document.getElementById('modalIframe');
-      const modalClose = document.getElementById('modalClose');
-
-      // Open Modal on Link Click
-      document.querySelectorAll('.view-cert-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          const certSrc = button.getAttribute('data-src');
-          const certTitle = button.getAttribute('data-title');
-
-          if (certSrc) {
-            modalIframe.src = certSrc;
-            modalTitle.textContent = certTitle || 'Certificate Preview';
-            modal.classList.add('active');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Lock background scrolling
-          }
-        });
-      });
-
-      // Close Modal Function
-      const closeModal = () => {
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        setTimeout(() => { 
-          modalIframe.src = ''; 
-        }, 300); // Clear iframe content after fade transition finishes
-      };
-
-      modalClose.addEventListener('click', closeModal);
-
-      // Close when clicking outside content box
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
-      });
-
-      // Close on Escape key press
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-          closeModal();
-        }
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
