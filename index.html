@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1X7YVW1EEK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X7YVW1EEK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-1X7YVW1EEK');
-</script>
+    gtag('config', 'G-1X7YVW1EEK');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vahab Asadizadeh | Multilingual Health Specialist & Medical Scholar</title>
@@ -192,7 +192,7 @@
       font-size: clamp(2.8rem, 5vw, 4.8rem);
       font-weight: 600;
       line-height: 1.15;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
       letter-spacing: -0.5px;
     }
 
@@ -201,14 +201,6 @@
       background: var(--accent-gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin-bottom: 40px;
-      font-weight: 300;
     }
 
     .hero-actions {
@@ -301,46 +293,16 @@
       font-size: 0.95rem;
     }
 
-    /* Story / Origin Section */
+    /* Story Section */
     .story-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .story-content p {
       color: var(--text-muted);
       margin-bottom: 20px;
       font-size: 1.05rem;
-    }
-
-    .story-highlight {
-      border-left: 2px solid var(--accent-gold);
-      padding-left: 24px;
-      margin: 32px 0;
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-style: italic;
-      color: var(--text-main);
-    }
-
-    /* Skill Tags */
-    .skills-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .skill-pill {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: var(--text-main);
-      letter-spacing: 0.5px;
     }
 
     /* Services Section */
@@ -447,11 +409,9 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .story-wrapper { grid-template-columns: 1fr; gap: 30px; }
       .hero { padding-top: 140px; }
     }
   </style>
-
 
   <!-- Tells Google who you are -->
   <script type="application/ld+json">
@@ -464,8 +424,6 @@
     "knowsAbout": ["Clinical Medicine", "Medical Writing", "English Coaching", "Academic Advising"]
   }
   </script>
-
-  
 </head>
 <body>
 
@@ -478,7 +436,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#achievements">Achievements</a></li>
-      <li><a href="certifications.html">Certifications</a></li> <!-- Added link -->
+      <li><a href="certifications.html">Certifications</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -493,9 +451,6 @@
         <h1 class="hero-title">
           Bridging <span>Medical Science</span>, Advanced Programming & Holistic Wellness.
         </h1>
-        <p class="hero-subtitle">
-          I leverage clinical training, cross-cultural fluency, and technological literacy to deliver high-precision medical content, language mastery programs, and strategic academic advisement globally.
-        </p>
         <div class="hero-actions">
           <a href="#services" class="btn-gold">Explore Capabilities</a>
           <a href="#about" class="btn-outline">Read My Story</a>
@@ -531,10 +486,9 @@
             <h3 class="achievement-title">Python Programmer</h3>
             <p class="achievement-desc">Designing computational tools and scripts to analyze health data and automate complex workflows.</p>
           </div>
-          <!-- NEW BUTTON ADDITION -->
+        </div>
         <div style="text-align: center; margin-top: 48px;">
           <a href="certifications.html" class="btn-gold">View Official Certifications & Credentials &rarr;</a>
-        </div>
         </div>
       </div>
     </section>
@@ -543,43 +497,19 @@
     <section id="about" style="background: var(--bg-secondary);">
       <div class="container">
         <div class="story-wrapper">
-          <div>
-            <div class="section-header" style="margin-bottom: 24px;">
-              <span class="section-tag">Biography</span>
-              <h2 class="section-title">An Insatiable Curiosity for Human Potential</h2>
-            </div>
-            <div class="story-content">
-              <p>Since childhood, I have been driven by an endless passion for learning and scientific discovery. My journey began with traditional arts, martial arts, and painting—disciplines that taught me precision, balance, and patience.</p>
-              
-              <div class="story-highlight">
-                "True wellness unites physical discipline, intellectual clarity, and cross-cultural understanding."
-              </div>
-
-              <p>Today, as a fifth-year medical student, I synthesize my clinical foundation with modern technical literacy in Python and multilingual fluency to empower individuals, students, and organizations worldwide.</p>
-            </div>
+          <div class="section-header" style="margin-bottom: 24px;">
+            <span class="section-tag">Biography</span>
+            <h2 class="section-title">An Insatiable Curiosity for Human Potential</h2>
           </div>
-
-          <div>
-            <div class="section-header" style="margin-bottom: 24px;">
-              <span class="section-tag">Core Competencies</span>
-              <h2 class="section-title">Capabilities & Skills</h2>
-            </div>
-            <div class="skills-flex">
-              <span class="skill-pill">Clinical Medical Foundations</span>
-              <span class="skill-pill">Medical Writing & Editing</span>
-              <span class="skill-pill">English Pedagogy & Fluency</span>
-              <span class="skill-pill">Medical & Technical Translation</span>
-              <span class="skill-pill">Python Programming</span>
-              <span class="skill-pill">University Application Mentorship</span>
-              <span class="skill-pill">Holistic Health Education</span>
-              <span class="skill-pill">Cross-Cultural Communication</span>
-            </div>
+          <div class="story-content">
+            <p>Since childhood, I have been driven by an endless passion for learning and scientific discovery. My journey began with traditional arts, martial arts, and painting—disciplines that taught me precision, balance, and patience.</p>
+            <p>Today, as a fifth-year medical student, I synthesize my clinical foundation with modern technical literacy in Python and multilingual fluency to empower individuals, students, and organizations worldwide.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section (Professionally Formatted) -->
+    <!-- Services Section -->
     <section id="services">
       <div class="container">
         <div class="section-header">
